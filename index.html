@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rashmi Priya — Physicist</title>
+<meta name="description" content="Rashmi Priya — physicist at TIFR Hyderabad. Soft and active matter, physics of glasses and amorphous solids, liquid crystals, molecular dynamics simulation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%231C1D21'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23FCFCFA' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   Rashmi Priya — personal academic site
+   One file. To publish on GitHub Pages, upload this as
+   index.html together with CV.pdf (and optionally photo.jpg).
+   ============================================================ */
+
+:root {
+  --paper:   #FCFCFA;   /* page background            */
+  --ink:     #1C1D21;   /* primary text               */
+  --slate:   #5A5E66;   /* secondary text             */
+  --stone:   #E4E3DD;   /* hairlines, quiet fills     */
+  --prussian:#24486B;   /* accent — links, references */
+  --prussian-soft: rgba(36, 72, 107, 0.35);
+
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --mono:  "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+
+  --maxw: 920px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: rgba(36, 72, 107, 0.16); }
+
+a { color: inherit; }
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+section[id] { scroll-margin-top: 76px; }
+
+/* ---------- sticky header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(252, 252, 250, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--stone);
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  height: 54px;
+}
+
+.brand {
+  font-weight: 500;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  gap: 22px;
+  overflow-x: auto;
+}
+
+.site-nav a {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: var(--slate);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 4px 0;
+}
+
+.site-nav a:hover { color: var(--prussian); }
+
+/* ---------- masthead ---------- */
+
+.masthead {
+  padding: 72px 0 56px;
+}
+
+.masthead .wrap {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 48px;
+  align-items: start;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 18px;
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 3.7rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  margin-bottom: 14px;
+}
+
+.role {
+  font-size: 1.08rem;
+  color: var(--slate);
+  max-width: 46ch;
+}
+
+.role a {
+  color: var(--slate);
+  text-decoration-color: var(--prussian-soft);
+  text-underline-offset: 3px;
+}
+
+.role a:hover { color: var(--prussian); }
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.links a {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+  text-decoration: none;
+  border: 1px solid var(--stone);
+  border-radius: 3px;
+  padding: 8px 14px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.links a:hover {
+  border-color: var(--prussian);
+  color: var(--prussian);
+}
+
+.links a .ext {
+  color: var(--slate);
+  margin-left: 4px;
+}
+
+.portrait {
+  position: relative;
+  width: 150px;
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--stone);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #EFEEE9;
+}
+
+.portrait img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portrait .monogram {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--slate);
+}
+
+/* gentle entrance — masthead only */
+@media (prefers-reduced-motion: no-preference) {
+  .masthead .eyebrow, .masthead h1, .masthead .role,
+  .masthead .links, .portrait {
+    animation: rise 0.55s ease both;
+  }
+  .masthead h1    { animation-delay: 0.05s; }
+  .masthead .role { animation-delay: 0.10s; }
+  .masthead .links{ animation-delay: 0.16s; }
+  .portrait       { animation-delay: 0.10s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+}
+
+/* ---------- sections: marginalia rail + content ---------- */
+
+.section {
+  border-top: 1px solid var(--stone);
+  padding: 48px 0;
+}
+
+.section .wrap {
+  display: grid;
+  grid-template-columns: 168px 1fr;
+  gap: 40px;
+}
+
+.rail {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--slate);
+  position: sticky;
+  top: 78px;
+  align-self: start;
+}
+
+.content p {
+  max-width: 64ch;
+}
+
+.content p + p { margin-top: 16px; }
+
+.content a {
+  color: var(--prussian);
+  text-decoration-color: var(--prussian-soft);
+  text-underline-offset: 3px;
+}
+
+.content a:hover { text-decoration-color: var(--prussian); }
+
+.lede {
+  font-size: 1.22rem;
+  line-height: 1.55;
+}
+
+/* ---------- research list ---------- */
+
+.research-list {
+  display: grid;
+  gap: 0;
+}
+
+.research-item {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 28px;
+  padding: 18px 0;
+  border-top: 1px solid var(--stone);
+}
+
+.research-item:first-child { border-top: none; padding-top: 0; }
+
+.research-item dt {
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.research-item dd {
+  color: var(--slate);
+  font-size: 0.98rem;
+}
+
+/* ---------- publications ---------- */
+
+.pubs {
+  list-style: none;
+  display: grid;
+  gap: 26px;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 10px;
+}
+
+.pub .ref {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--prussian);
+  padding-top: 4px;
+}
+
+.pub-title {
+  font-size: 1.13rem;
+  font-weight: 500;
+  line-height: 1.4;
+  max-width: 60ch;
+}
+
+.pub-title a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.pub-title a:hover {
+  color: var(--prussian);
+  border-bottom-color: var(--prussian-soft);
+}
+
+.pub-meta {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  color: var(--slate);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+
+.venue { font-style: italic; }
+
+.badge {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--prussian);
+  border: 1px solid var(--prussian-soft);
+  border-radius: 999px;
+  padding: 2.5px 9px;
+}
+
+.pub-links {
+  margin-top: 6px;
+  display: flex;
+  gap: 16px;
+}
+
+.pub-links a {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--prussian);
+  text-decoration: none;
+  border-bottom: 1px solid var(--prussian-soft);
+  padding-bottom: 1px;
+}
+
+.pub-links a:hover { border-bottom-color: var(--prussian); }
+
+.pub.in-prep .ref { color: var(--slate); }
+.pub.in-prep .pub-title { color: var(--slate); }
+
+/* ---------- rows (education) ---------- */
+
+.rows { display: grid; }
+
+.row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 28px;
+  padding: 14px 0;
+  border-top: 1px solid var(--stone);
+}
+
+.row:first-child { border-top: none; padding-top: 0; }
+
+.row .when {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--slate);
+  padding-top: 3px;
+}
+
+.row .what { font-size: 1.02rem; }
+
+.row .what .detail {
+  display: block;
+  color: var(--slate);
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--stone);
+  padding: 44px 0 60px;
+}
+
+.site-footer .wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.correspondence {
+  font-size: 1rem;
+}
+
+.correspondence a {
+  color: var(--prussian);
+  text-decoration-color: var(--prussian-soft);
+  text-underline-offset: 3px;
+}
+
+.colophon {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--slate);
+  margin-top: 6px;
+}
+
+/* ---------- focus & small screens ---------- */
+
+a:focus-visible {
+  outline: 2px solid var(--prussian);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 760px) {
+  .masthead { padding: 48px 0 44px; }
+
+  .masthead .wrap {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .portrait { order: -1; width: 120px; }
+
+  .section .wrap { grid-template-columns: 1fr; gap: 16px; }
+
+  .rail { position: static; }
+
+  .lede { font-size: 1.12rem; }
+
+  .research-item { grid-template-columns: 1fr; gap: 4px; }
+
+  .row { grid-template-columns: 1fr; gap: 2px; }
+  .row .when { padding-top: 0; }
+
+  .pub { grid-template-columns: 40px 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Rashmi Priya</a>
+    <nav class="site-nav" aria-label="Sections">
+      <a href="#work">work</a>
+      <a href="#research">research</a>
+      <a href="#publications">publications</a>
+      <a href="#education">education</a>
+      <a href="CV.pdf">cv</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ==================== masthead ==================== -->
+  <div class="masthead">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Soft &amp; Active Matter&ensp;·&ensp;Glasses&ensp;·&ensp;Computational Physics</p>
+        <h1>Rashmi Priya</h1>
+        <p class="role"><a href="https://www.tifrh.res.in/" target="_blank" rel="noopener">Tata Institute of Fundamental Research, Hyderabad</a></p>
+        <div class="links">
+          <a href="mailto:rpriya@tifrh.res.in">rpriya@tifrh.res.in</a>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=5ZyOE94AAAAJ" target="_blank" rel="noopener">Google Scholar<span class="ext">↗</span></a>
+          <a href="https://www.linkedin.com/in/rashmi-priya-rp/" target="_blank" rel="noopener">LinkedIn<span class="ext">↗</span></a>
+          <a href="CV.pdf">CV<span class="ext">(pdf)</span></a>
+        </div>
+      </div>
+
+      <figure class="portrait">
+        <!-- Upload photo.jpg (or photo.png) next to index.html and it appears here.
+             If no photo is present, the RP monogram shows instead. -->
+        <div class="monogram" aria-hidden="true">RP</div>
+        <img src="photo.jpg" alt="Rashmi Priya"
+             onerror="if(this.dataset.tried!=='png'){this.dataset.tried='png';this.src='photo.png';}else{this.remove();}">
+      </figure>
+    </div>
+  </div>
+
+  <!-- ==================== work ==================== -->
+  <section class="section" id="work">
+    <div class="wrap">
+      <h2 class="rail">Work</h2>
+      <div class="content">
+        <p class="lede">I study the mechanics of disordered matter — how glasses and
+           amorphous solids deform, yield, and retain memories of their deformation
+           history — using large-scale molecular dynamics simulations.</p>
+        <p>Much of my recent work explores what happens when disorder meets activity.
+           In particular, I investigate how doping amorphous solids with self-propelled
+           particles changes their yielding behaviour, strength, plastic deformation,
+           and rheology. I am also interested in memory formation in driven,
+           non-equilibrium systems.</p>
+        <p>I have also worked on liquid-crystalline phases and their mechanical
+           response. Looking ahead, I am interested in learning and applying artificial
+           intelligence and machine-learning methods at the interface of physics and
+           complex systems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== research ==================== -->
+  <section class="section" id="research">
+    <div class="wrap">
+      <h2 class="rail">Research</h2>
+      <div class="content">
+        <dl class="research-list">
+          <div class="research-item">
+            <dt>Yielding &amp; memory in amorphous solids</dt>
+            <dd>Directional memory of deformation — the Bauschinger effect and its
+                inverse — in ultrastable glasses, and the crossover between the two
+                under steady shear.</dd>
+          </div>
+          <div class="research-item">
+            <dt>Active amorphous solids</dt>
+            <dd>Active-particle doping as a control knob for the rigidity, yielding,
+                and emergent rheology of dense disordered materials.</dd>
+          </div>
+          <div class="research-item">
+            <dt>Liquid crystals</dt>
+            <dd>The mechanical response of liquid-crystalline phases.</dd>
+          </div>
+          <div class="research-item">
+            <dt>Large-scale simulation</dt>
+            <dd>Molecular dynamics with LAMMPS and custom MPI-parallel codes in C,
+                run on high-performance computing clusters.</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== publications ==================== -->
+  <section class="section" id="publications">
+    <div class="wrap">
+      <h2 class="rail">Publications</h2>
+      <div class="content">
+        <ol class="pubs">
+
+          <li class="pub">
+            <span class="ref">[1]</span>
+            <div>
+              <p class="pub-title"><a href="https://arxiv.org/abs/2508.06260" target="_blank" rel="noopener">Tunable yielding and emergent rheology in amorphous solids with active particle doping</a></p>
+              <p class="pub-meta"><span class="venue">Nature Communications</span> · 2026</p>
+              <p class="pub-links"><a href="https://arxiv.org/abs/2508.06260" target="_blank" rel="noopener">arXiv</a></p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <span class="ref">[2]</span>
+            <div>
+              <p class="pub-title"><a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">Inverse Bauschinger to Bauschinger crossover under steady shear in amorphous solids</a></p>
+              <p class="pub-meta"><span class="venue">Physical Review Materials</span> 10, 035604 · 2026 <span class="badge">Editors’ Suggestion</span></p>
+              <p class="pub-links"><a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">doi</a></p>
+            </div>
+          </li>
+
+          <li class="pub">
+            <span class="ref">[3]</span>
+            <div>
+              <p class="pub-title"><a href="https://doi.org/10.1103/4ws8-1s7j" target="_blank" rel="noopener">Inverse Bauschinger effect in active ultrastable glasses</a></p>
+              <p class="pub-meta"><span class="venue">Physical Review E</span> 112, 035414 · 2025 <span class="badge">Editors’ Suggestion</span></p>
+              <p class="pub-links"><a href="https://doi.org/10.1103/4ws8-1s7j" target="_blank" rel="noopener">doi</a></p>
+            </div>
+          </li>
+
+          <li class="pub in-prep">
+            <span class="ref">[4]</span>
+            <div>
+              <p class="pub-title">Mechanical response of liquid-crystalline phases</p>
+              <p class="pub-meta">Manuscript in preparation</p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== education ==================== -->
+  <section class="section" id="education">
+    <div class="wrap">
+      <h2 class="rail">Education</h2>
+      <div class="content">
+        <div class="rows">
+          <div class="row">
+            <span class="when">Oct 2020 – Aug 2026</span>
+            <div class="what">Ph.D. in Physics
+              <span class="detail">Tata Institute of Fundamental Research, Hyderabad</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="correspondence">Correspondence: <a href="mailto:rpriya@tifrh.res.in">rpriya@tifrh.res.in</a></p>
+    <p class="correspondence">Tata Institute of Fundamental Research, Hyderabad, India</p>
+    <p class="colophon">© 2026 Rashmi Priya · Last updated July 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
