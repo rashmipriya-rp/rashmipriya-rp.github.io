@@ -28,6 +28,18 @@
   --mono:  "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 
   --maxw: 920px;
+
+  /* type scale — one source of truth; every size below comes from here.
+     rem is relative to the browser root (16px), NOT to body.            */
+  --t-mono-xs: 11px;      /* badge                                 */
+  --t-mono:    12px;      /* rail, nav, eyebrow, colophon          */
+  --t-mono-lg: 13px;      /* link buttons, refs, dates             */
+  --t-small:   0.9375rem; /* 15px — meta, sub-details              */
+  --t-body:    1.0625rem; /* 17px — all running prose              */
+  --t-title:   1.125rem;  /* 18px — item & publication titles      */
+  --t-lede:    1.0625rem; /* 17px — opening para, matches body.
+                             Raise to 1.125rem for a subtle step up. */
+  --t-name:    clamp(1.7rem, 3.4vw, 2.15rem);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,12 +48,13 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: var(--serif);
-  font-size: 17px;
+  font-size: var(--t-body);
   line-height: 1.65;
   color: var(--ink);
   background: var(--paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  font-optical-sizing: none;   /* all prose uses one drawing of Newsreader */
 }
 
 ::selection { background: rgba(36, 72, 107, 0.16); }
@@ -53,8 +66,6 @@ a { color: inherit; }
   margin: 0 auto;
   padding: 0 28px;
 }
-body { font-optical-sizing: none; }   /* prose all uses one drawing */
-h1   { font-optical-sizing: auto; }   /* name keeps its display cut */
 
 section[id] { scroll-margin-top: 76px; }
 
@@ -80,7 +91,7 @@ section[id] { scroll-margin-top: 76px; }
 
 .brand {
   font-weight: 500;
-  font-size: 0.98rem;
+  font-size: var(--t-small);
   letter-spacing: 0.01em;
   text-decoration: none;
 }
@@ -93,7 +104,7 @@ section[id] { scroll-margin-top: 76px; }
 
 .site-nav a {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--t-mono);
   letter-spacing: 0.05em;
   color: var(--slate);
   text-decoration: none;
@@ -118,7 +129,7 @@ section[id] { scroll-margin-top: 76px; }
 
 .eyebrow {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--t-mono);
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--slate);
@@ -126,15 +137,16 @@ section[id] { scroll-margin-top: 76px; }
 }
 
 h1 {
-  font-size: clamp(2.05rem, 4.6vw, 2.85rem);
+  font-size: var(--t-name);
   font-weight: 500;
   letter-spacing: -0.01em;
   line-height: 1.12;
   margin-bottom: 14px;
+  font-optical-sizing: auto;   /* name keeps its high-contrast display cut */
 }
 
 .role {
-  font-size: 1.08rem;
+  font-size: var(--t-body);
   color: var(--slate);
   max-width: 46ch;
 }
@@ -156,7 +168,7 @@ h1 {
 
 .links a {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: var(--t-mono-lg);
   color: var(--ink);
   text-decoration: none;
   border: 1px solid var(--stone);
@@ -237,7 +249,7 @@ h1 {
 
 .rail {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--t-mono);
   font-weight: 500;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -262,8 +274,8 @@ h1 {
 .content a:hover { text-decoration-color: var(--prussian); }
 
 .lede {
-  font-size: 1.22rem;
-  line-height: 1.55;
+  font-size: var(--t-lede);
+  line-height: 1.65;
 }
 
 /* ---------- research list ---------- */
@@ -285,13 +297,13 @@ h1 {
 
 .research-item dt {
   font-weight: 500;
-  font-size: 1.05rem;
+  font-size: var(--t-title);
   line-height: 1.4;
 }
 
 .research-item dd {
   color: var(--slate);
-  font-size: 0.98rem;
+  font-size: var(--t-body);
 }
 
 /* ---------- publications ---------- */
@@ -310,13 +322,13 @@ h1 {
 
 .pub .ref {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: var(--t-mono-lg);
   color: var(--prussian);
   padding-top: 4px;
 }
 
 .pub-title {
-  font-size: 1.13rem;
+  font-size: var(--t-title);
   font-weight: 500;
   line-height: 1.4;
   max-width: 60ch;
@@ -336,7 +348,7 @@ h1 {
 
 .pub-meta {
   margin-top: 6px;
-  font-size: 0.95rem;
+  font-size: var(--t-small);
   color: var(--slate);
   display: flex;
   flex-wrap: wrap;
@@ -349,7 +361,7 @@ h1 {
 .badge {
   font-family: var(--mono);
   font-style: normal;
-  font-size: 10.5px;
+  font-size: var(--t-mono-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--prussian);
@@ -366,7 +378,7 @@ h1 {
 
 .pub-links a {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--t-mono);
   color: var(--prussian);
   text-decoration: none;
   border-bottom: 1px solid var(--prussian-soft);
@@ -391,17 +403,17 @@ h1 {
 
 .row .when {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: var(--t-mono-lg);
   color: var(--slate);
   padding-top: 3px;
 }
 
-.row .what { font-size: 1.02rem; }
+.row .what { font-size: var(--t-body); }
 
 .row .what .detail {
   display: block;
   color: var(--slate);
-  font-size: 0.95rem;
+  font-size: var(--t-small);
   margin-top: 2px;
 }
 
@@ -418,7 +430,7 @@ h1 {
 }
 
 .correspondence {
-  font-size: 1rem;
+  font-size: var(--t-body);
 }
 
 .correspondence a {
@@ -429,7 +441,7 @@ h1 {
 
 .colophon {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--t-mono);
   color: var(--slate);
   margin-top: 6px;
 }
@@ -455,8 +467,6 @@ a:focus-visible {
   .section .wrap { grid-template-columns: 1fr; gap: 16px; }
 
   .rail { position: static; }
-
-  .lede { font-size: 1.12rem; }
 
   .research-item { grid-template-columns: 1fr; gap: 4px; }
 
