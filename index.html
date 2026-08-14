@@ -17,10 +17,10 @@
    ============================================================ */
 
 :root {
-  --paper:   #FCFCFA;   /* page background            */
+  --paper:   #EFEEE9;   /* page background — muted warm grey       */
   --ink:     #1C1D21;   /* primary text               */
-  --slate:   #5A5E66;   /* secondary text             */
-  --stone:   #E4E3DD;   /* hairlines, quiet fills     */
+  --slate:   #575B63;   /* secondary text             */
+  --stone:   #D5D3CA;   /* hairlines, quiet fills     */
   --prussian:#24486B;   /* accent — links, references */
   --prussian-soft: rgba(36, 72, 107, 0.35);
 
@@ -75,7 +75,7 @@ section[id] { scroll-margin-top: 76px; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(252, 252, 250, 0.92);
+  background: rgba(239, 238, 233, 0.92);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--stone);
@@ -103,6 +103,7 @@ section[id] { scroll-margin-top: 76px; }
 }
 
 .site-nav a {
+  position: relative;
   font-family: var(--mono);
   font-size: var(--t-mono);
   letter-spacing: 0.05em;
@@ -110,9 +111,28 @@ section[id] { scroll-margin-top: 76px; }
   text-decoration: none;
   white-space: nowrap;
   padding: 4px 0;
+  transition: color 0.2s ease;
 }
 
 .site-nav a:hover { color: var(--prussian); }
+
+/* section currently in view */
+.site-nav a.is-current { color: var(--prussian); }
+
+.site-nav a.is-current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1.5px;
+  background: var(--prussian);
+}
+
+/* no sliding underline for people who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .site-nav a { transition: none; }
+}
 
 /* ---------- masthead ---------- */
 
@@ -656,6 +676,69 @@ a:focus-visible {
     <p class="colophon">© 2026 Rashmi Priya · Last updated August 2026</p>
   </div>
 </footer>
+
+<script>
+/* ------------------------------------------------------------------
+   Scroll spy — highlights the nav link for the section you're reading.
+   Uses a reading line ~30% down the viewport: whichever section is
+   crossing that line is the one you're looking at.
+   ------------------------------------------------------------------ */
+(function () {
+  var links = Array.prototype.slice.call(
+    document.querySelectorAll('.site-nav a[href^="#"]')
+  );
+  if (!links.length) return;
+
+  // pair each nav link with its section, skipping any that don't resolve
+  var items = links.map(function (link) {
+    return { link: link, section: document.getElementById(link.hash.slice(1)) };
+  }).filter(function (item) { return item.section; });
+  if (!items.length) return;
+
+  var current = null;
+
+  function setCurrent(link) {
+    if (link === current) return;
+    if (current) current.classList.remove('is-current');
+    if (link) link.classList.add('is-current');
+    current = link;
+  }
+
+  function update() {
+    var line = window.scrollY + window.innerHeight * 0.3;
+    var active = null;
+
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].section.offsetTop <= line) active = items[i].link;
+    }
+
+    // at the very bottom the last section may be too short to reach the
+    // line, so make sure it still lights up
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 2) {
+      active = items[items.length - 1].link;
+    }
+
+    // above the first section, highlight nothing
+    if (window.scrollY < items[0].section.offsetTop - window.innerHeight * 0.3) {
+      active = null;
+    }
+
+    setCurrent(active);
+  }
+
+  // rAF throttle so scrolling stays smooth
+  var ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(function () { update(); ticking = false; });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  update();
+})();
+</script>
 
 </body>
 </html>
