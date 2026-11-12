@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rashmi Priya — Physicist</title>
-<meta name="description" content="Rashmi Priya — physicist at TIFR Hyderabad. Soft and active matter, physics of glasses and amorphous solids, liquid crystals, molecular dynamics simulation.">
+<meta name="description" content="Rashmi Priya — physicist studying soft and active matter, yielding in glasses, and mechanical memory in amorphous solids.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2210%22 fill=%22%231C1D21%22/><text x=%2232%22 y=%2241%22 text-anchor=%22middle%22 font-family=%22Georgia%2Cserif%22 font-size=%2224%22 font-weight=%22bold%22 fill=%22%23E0A458%22>RP</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,6 +100,7 @@ section[id] { scroll-margin-top: 76px; }
 }
 
 .brand {
+  flex: 0 0 auto;
   font-weight: 500;
   font-size: var(--t-small);
   letter-spacing: 0.01em;
@@ -108,6 +109,7 @@ section[id] { scroll-margin-top: 76px; }
 
 .site-nav {
   display: flex;
+  min-width: 0;
   gap: 22px;
   overflow-x: auto;
 }
@@ -321,32 +323,32 @@ h1 {
   line-height: 1.65;
 }
 
-/* ---------- research list ---------- */
+/* ---------- featured research ---------- */
 
-.research-list {
-  display: grid;
-  gap: 0;
-}
-
-.research-item {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 28px;
-  padding: 18px 0;
+.feature {
   border-top: 1px solid var(--stone);
+  padding: 20px 0;
 }
 
-.research-item:first-child { border-top: none; padding-top: 0; }
-
-.research-item dt {
-  font-weight: 500;
-  font-size: var(--t-title);
-  line-height: 1.4;
+.feature:first-child {
+  border-top: 0;
+  padding-top: 0;
 }
 
-.research-item dd {
+.content .feature-venue,
+.content .pub-authors {
   color: var(--slate);
-  font-size: var(--t-body);
+  font-size: var(--t-small);
+  margin-top: 4px;
+}
+
+.content .feature-venue + p { margin-top: 8px; }
+
+.research-methods {
+  border-top: 1px solid var(--stone);
+  padding-top: 14px;
+  color: var(--slate);
+  font-size: var(--t-small);
 }
 
 /* ---------- publications ---------- */
@@ -389,7 +391,7 @@ h1 {
   border-bottom-color: var(--prussian-soft);
 }
 
-.pub-meta {
+.content .pub-meta {
   margin-top: 6px;
   font-size: var(--t-small);
   color: var(--slate);
@@ -416,7 +418,8 @@ h1 {
 .pub-links {
   margin-top: 6px;
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 6px 16px;
 }
 
 .pub-links a {
@@ -511,8 +514,6 @@ a:focus-visible {
 
   .rail { position: static; }
 
-  .research-item { grid-template-columns: 1fr; gap: 4px; }
-
   .row { grid-template-columns: 1fr; gap: 2px; }
   .row .when { padding-top: 0; }
 
@@ -526,10 +527,11 @@ a:focus-visible {
   <div class="wrap">
     <a class="brand" href="#top">Rashmi Priya</a>
     <nav class="site-nav" aria-label="Sections">
-      <a href="#work">work</a>
+      <a href="#work">about</a>
       <a href="#research">research</a>
+      <a href="#news">news</a>
       <a href="#publications">publications</a>
-      <a href="#press">press</a>
+      <a href="#press">media</a>
       <a href="#positions">positions</a>
       <a href="CV.pdf">cv</a>
     </nav>
@@ -544,7 +546,7 @@ a:focus-visible {
       <div>
         <p class="eyebrow">Soft &amp; Active Matter&ensp;·&ensp;Glasses&ensp;·&ensp;Computational Physics</p>
         <h1>Rashmi Priya</h1>
-        <p class="role"><a href="https://www.tifrh.res.in/" target="_blank" rel="noopener">Tata Institute of Fundamental Research, Hyderabad</a></p>
+        <p class="role">Ph.D. in Physics, <a href="https://www.tifrh.res.in/" target="_blank" rel="noopener">TIFR Hyderabad</a></p>
         <div class="links">
           <a href="mailto:rpriya@tifrh.res.in">rpriya@tifrh.res.in</a>
           <a href="https://scholar.google.com/citations?hl=en&amp;user=5ZyOE94AAAAJ" target="_blank" rel="noopener">Google Scholar<span class="ext">↗</span></a>
@@ -564,55 +566,87 @@ a:focus-visible {
     </div>
   </div>
 
-  <!-- ==================== work ==================== -->
+  <!-- ==================== about ==================== -->
   <section class="section" id="work">
     <div class="wrap">
-      <h2 class="rail">Work</h2>
+      <h2 class="rail">About</h2>
       <div class="content">
-        <p class="lede">I study the mechanics of disordered matter — how glasses and
-           amorphous solids deform, yield, and retain memories of their deformation
-           history — using large-scale molecular dynamics simulations.</p>
-        <p>Much of my recent work explores what happens when disorder meets activity.
-           In particular, I investigate how doping amorphous solids with self-propelled
-           particles changes their yielding behaviour, strength, plastic deformation,
-           and rheology. I am also interested in memory formation in driven,
-           non-equilibrium systems.</p>
-        <p>I have also worked on liquid-crystalline phases and their mechanical
-           response. Looking ahead, I am interested in learning and applying artificial
-           intelligence and machine-learning methods at the interface of physics and
-           complex systems.</p>
+        <p class="lede">I’m a physicist studying how glasses and other amorphous
+           solids deform, yield, and retain memories of prior deformation.</p>
+        <p>I completed my Ph.D. at Tata Institute of Fundamental Research, Hyderabad, with
+           Prof. Smarajit Karmakar. I used large-scale molecular dynamics to study how active
+           particles change the strength and failure of ultrastable glasses, and how shear
+           reversal reveals mechanical memory in active and passive glasses.</p>
+        <p>I also modeled and studied shear-induced yielding in rigid rods that form
+           liquid-crystalline phases. I’m interested in how physics and AI can inform each other.</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== research ==================== -->
+  <!-- ==================== featured research ==================== -->
   <section class="section" id="research">
     <div class="wrap">
-      <h2 class="rail">Research</h2>
+      <h2 class="rail">Featured Research</h2>
       <div class="content">
-        <dl class="research-list">
-          <div class="research-item">
-            <dt>Active doping in amorphous solids</dt>
-            <dd>Active-particle doping as a control knob for the rigidity, yielding,
-                and emergent rheology of dense disordered materials.</dd>
+        <div class="features">
+          <article class="feature">
+            <h3 class="pub-title">Active doping in ultrastable glasses</h3>
+            <p class="feature-venue"><em>Nature Communications</em> · 2026</p>
+            <p>In simulations, active particles could increase the yield stress and strain
+               of ultrastable glasses and spread deformation across a network of shear bands,
+               leading to more gradual yielding. I also ran stress-controlled simulations.</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1038/s41467-026-75709-y" target="_blank" rel="noopener">Paper</a>
+              <a href="https://doi.org/10.6084/m9.figshare.32894057" target="_blank" rel="noopener">Data and code</a>
+              <a href="#press">Press coverage</a>
+            </div>
+          </article>
+          <article class="feature">
+            <h3 class="pub-title">Mechanical memory under shear reversal</h3>
+            <p class="feature-venue"><em>Physical Review Materials</em> · 2026 and <em>Physical Review E</em> · 2025</p>
+            <p>Shear reversal revealed an inverse Bauschinger effect in active ultrastable
+               glasses. In passive glasses, preparation, shear rate, and deformation history
+               determine when the response crosses over to the conventional Bauschinger effect.</p>
+            <div class="pub-links">
+              <a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">Physical Review Materials</a>
+              <a href="https://doi.org/10.1103/4ws8-1s7j" target="_blank" rel="noopener">Physical Review E</a>
+            </div>
+          </article>
+        </div>
+        <p class="research-methods"><strong>Methods.</strong> I use LAMMPS and custom MPI-parallel
+           codes in C for large-scale molecular dynamics. I also work with Python.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== news ==================== -->
+  <section class="section" id="news">
+    <div class="wrap">
+      <h2 class="rail">News</h2>
+      <div class="content">
+        <div class="rows">
+          <div class="row">
+            <time class="when" datetime="2026-08">Aug 2026</time>
+            <div class="what">Our active-doping study was covered by Phys.org and other outlets.
+              <a href="#press">Selected media</a></div>
           </div>
-          <div class="research-item">
-            <dt>Yielding &amp; memory</dt>
-            <dd>Directional memory in amorphous solids — the Bauschinger effect and
-                its inverse — and the crossover between the two under steady
-                shear.</dd>
+          <div class="row">
+            <time class="when" datetime="2026-07-28">28 Jul 2026</time>
+            <div class="what">Presented my Ph.D. thesis at TIFR Hyderabad.
+              <a href="https://www.tifrh.res.in/webdata/documents/events/seminars/2026/jul/Rashmi_Priya_28072026.pdf" target="_blank" rel="noopener">Thesis webinar</a></div>
           </div>
-          <div class="research-item">
-            <dt>Liquid crystals</dt>
-            <dd>Phase transitions and mechanical response in liquid-crystalline
-                systems.</dd>
+          <div class="row">
+            <time class="when" datetime="2026-07-23">23 Jul 2026</time>
+            <div class="what">Our paper on active-particle doping and yielding appeared in
+              <a href="https://doi.org/10.1038/s41467-026-75709-y" target="_blank" rel="noopener"><em>Nature Communications</em></a>.</div>
           </div>
-          <div class="research-item">
-            <dt>Large-scale simulation</dt>
-            <dd>Molecular dynamics with LAMMPS and custom MPI-parallel codes in C,
-                run on high-performance computing clusters.</dd>
+          <div class="row">
+            <time class="when" datetime="2026-03-18">18 Mar 2026</time>
+            <div class="what">Our paper on the Bauschinger crossover was selected as an
+              <a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">Editors’ Suggestion</a>
+              in <em>Physical Review Materials</em>.</div>
           </div>
-        </dl>
+        </div>
       </div>
     </div>
   </section>
@@ -628,8 +662,9 @@ a:focus-visible {
             <span class="ref">[1]</span>
             <div>
               <p class="pub-title"><a href="https://doi.org/10.1038/s41467-026-75709-y" target="_blank" rel="noopener">Tunable yielding and emergent rheology in amorphous solids with active particle doping</a></p>
-              <p class="pub-meta"><span class="venue">Nature Communications</span> · 2026 <span class="badge">Open Access</span></p>
-              <p class="pub-links"><a href="https://doi.org/10.1038/s41467-026-75709-y" target="_blank" rel="noopener">doi</a><a href="https://www.eurekalert.org/news-releases/1140063" target="_blank" rel="noopener">press</a></p>
+              <p class="pub-authors"><strong>Rashmi Priya</strong>, Jürgen Horbach, Smarajit Karmakar</p>
+              <p class="pub-meta"><span class="venue">Nature Communications</span> 17, 8966 · 2026 <span class="badge">Open Access</span></p>
+              <p class="pub-links"><a href="https://doi.org/10.1038/s41467-026-75709-y" target="_blank" rel="noopener">Paper</a><a href="https://doi.org/10.6084/m9.figshare.32894057" target="_blank" rel="noopener">Data and code</a></p>
             </div>
           </li>
 
@@ -637,8 +672,9 @@ a:focus-visible {
             <span class="ref">[2]</span>
             <div>
               <p class="pub-title"><a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">Inverse Bauschinger to Bauschinger crossover under steady shear in amorphous solids</a></p>
+              <p class="pub-authors"><strong>Rashmi Priya</strong>, Smarajit Karmakar</p>
               <p class="pub-meta"><span class="venue">Physical Review Materials</span> 10, 035604 · 2026 <span class="badge">Editors’ Suggestion</span></p>
-              <p class="pub-links"><a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">doi</a></p>
+              <p class="pub-links"><a href="https://doi.org/10.1103/stkn-vhrr" target="_blank" rel="noopener">Paper</a></p>
             </div>
           </li>
 
@@ -646,8 +682,9 @@ a:focus-visible {
             <span class="ref">[3]</span>
             <div>
               <p class="pub-title"><a href="https://doi.org/10.1103/4ws8-1s7j" target="_blank" rel="noopener">Inverse Bauschinger effect in active ultrastable glasses</a></p>
+              <p class="pub-authors"><strong>Rashmi Priya</strong>, Smarajit Karmakar</p>
               <p class="pub-meta"><span class="venue">Physical Review E</span> 112, 035414 · 2025 <span class="badge">Editors’ Suggestion</span></p>
-              <p class="pub-links"><a href="https://doi.org/10.1103/4ws8-1s7j" target="_blank" rel="noopener">doi</a></p>
+              <p class="pub-links"><a href="https://doi.org/10.1103/4ws8-1s7j" target="_blank" rel="noopener">Paper</a></p>
             </div>
           </li>
 
@@ -659,13 +696,25 @@ a:focus-visible {
   <!-- ==================== press ==================== -->
   <section class="section" id="press">
     <div class="wrap">
-      <h2 class="rail">Press</h2>
+      <h2 class="rail">Selected Media</h2>
       <div class="content">
         <div class="rows">
           <div class="row">
-            <span class="when">2026</span>
-            <div class="what">“Tuning brittle failure with a dash of ‘active’ particles”
-              <span class="detail"><a href="https://www.eurekalert.org/news-releases/1140063" target="_blank" rel="noopener">EurekAlert!</a> (AAAS)</span>
+            <time class="when" datetime="2026-08-16">16 Aug 2026</time>
+            <div class="what"><a href="https://phys.org/news/2026-08-particles-stable-glasses-stronger-catastrophic.html" target="_blank" rel="noopener">Active particles could make stable glasses stronger without catastrophic brittle failure</a>
+              <span class="detail">Phys.org · Also covered by <a href="https://www.cosmosweek.com/en/news/active-particles-could-make-stable-glasses-stronger-without-catastrophic-brittle-failure/" target="_blank" rel="noopener">Cosmos Week</a> · <a href="https://www.linkedin.com/posts/phys-org_active-particles-could-make-stable-glasses-activity-7494740290075975681-LT3z" target="_blank" rel="noopener">Phys.org on LinkedIn</a></span>
+            </div>
+          </div>
+          <div class="row">
+            <time class="when" datetime="2026-08-14">14 Aug 2026</time>
+            <div class="what">Active particles offer new ways to control brittle failure
+              <span class="detail"><a href="https://bioengineer.org/active-particles-offer-new-ways-to-control-brittle-failure/" target="_blank" rel="noopener">Bioengineer.org</a> · <a href="https://scienmag.com/active-particles-offer-new-ways-to-control-brittle-failure/" target="_blank" rel="noopener">Scienmag</a></span>
+            </div>
+          </div>
+          <div class="row">
+            <time class="when" datetime="2026-08-13">13 Aug 2026</time>
+            <div class="what">Tuning brittle failure with a dash of “active” particles
+              <span class="detail">TIFR press release via <a href="https://www.eurekalert.org/news-releases/1140063" target="_blank" rel="noopener">EurekAlert!</a> (AAAS) · Reposted by <a href="https://www.brightsurf.com/news/L59NKOR8/tuning-brittle-failure-with-a-dash-of-active-particles.html" target="_blank" rel="noopener">Brightsurf News</a></span>
             </div>
           </div>
         </div>
@@ -682,7 +731,13 @@ a:focus-visible {
           <div class="row">
             <span class="when">Oct 2020 – Aug 2026</span>
             <div class="what">Ph.D. in Physics
-              <span class="detail">Tata Institute of Fundamental Research, Hyderabad</span>
+              <span class="detail">Tata Institute of Fundamental Research, Hyderabad · Advisor: Prof. Smarajit Karmakar</span>
+            </div>
+          </div>
+          <div class="row">
+            <span class="when">Apr – Jun 2023</span>
+            <div class="what">Visiting Researcher
+              <span class="detail">Heinrich Heine University Düsseldorf, Germany · Host: Prof. Jürgen Horbach</span>
             </div>
           </div>
         </div>
@@ -695,8 +750,7 @@ a:focus-visible {
 <footer class="site-footer">
   <div class="wrap">
     <p class="correspondence">Correspondence: <a href="mailto:rpriya@tifrh.res.in">rpriya@tifrh.res.in</a></p>
-    <p class="correspondence">Tata Institute of Fundamental Research, Hyderabad, India</p>
-    <p class="colophon">© 2026 Rashmi Priya · Last updated August 2026</p>
+    <p class="colophon">© 2026 Rashmi Priya · Last updated November 2026</p>
   </div>
 </footer>
 
